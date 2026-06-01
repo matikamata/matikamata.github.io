@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PureDhamma em Português — acesse as ensinamentos do Buda em seu idioma. Purifica a mente. Serve desinteressadamente.">
+<meta property="og:title" content="Niddhi — Sua Herança Real">
+<meta property="og:description" content="PureDhamma em Português. Purifica a mente. Serve desinteressadamente.">
+<meta property="og:url" content="https://matikamata.github.io">
+<title>Niddhi — Sua Herança Real</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0b0f0e;
+    --bg2: #111916;
+    --bg3: #172119;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --gold-dim: #7a6230;
+    --green: #2e6b4a;
+    --green-light: #4a9e72;
+    --cream: #f0e8d5;
+    --cream-dim: #a8997e;
+    --border: rgba(201,168,76,0.15);
+    --border-hover: rgba(201,168,76,0.4);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--serif);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Grain overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ── Radial glow ── */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 600px;
+    max-height: 600px;
+    background: radial-gradient(ellipse, rgba(46,107,74,0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 64px 0 40px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .lotus {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    animation: bloom 2s ease both 0.3s;
+    transform-origin: center bottom;
+  }
+
+  .lotus svg { width: 100%; height: 100%; }
+
+  .site-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .tagline {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    margin: 28px auto;
+  }
+
+  /* ── MAIN LINK ── */
+  .main-link {
+    display: block;
+    background: linear-gradient(135deg, var(--bg3) 0%, rgba(46,107,74,0.2) 100%);
+    border: 1px solid var(--border-hover);
+    border-radius: 16px;
+    padding: 24px 28px;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 16px;
+    transition: border-color 0.3s, transform 0.2s;
+    animation: fadeUp 0.8s ease both 0.5s;
+  }
+
+  .main-link:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .main-link .link-eyebrow {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--green-light);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .main-link .link-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--gold2);
+  }
+
+  .main-link .link-sub {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .main-link .link-url {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold-dim);
+    margin-top: 10px;
+  }
+
+  /* ── CHANNEL GRID ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin: 32px 0 12px;
+    text-align: center;
+    animation: fadeUp 0.8s ease both 0.7s;
+  }
+
+  .channels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    animation: fadeUp 0.8s ease both 0.8s;
+  }
+
+  .channel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .channel:hover {
+    border-color: var(--border-hover);
+    background: var(--bg3);
+    transform: translateY(-2px);
+  }
+
+  .channel.soon {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .channel-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+
+  .channel-name {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 2px;
+  }
+
+  .channel-desc {
+    font-size: 0.78rem;
+    color: var(--cream-dim);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .channel-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    border-radius: 4px;
+    padding: 2px 6px;
+    text-transform: uppercase;
+  }
+
+  .channel-badge.soon-badge {
+    background: rgba(168,153,126,0.1);
+    color: var(--cream-dim);
+  }
+
+  /* ── PUREDHAMMA REFERENCE ── */
+  .ref-block {
+    margin-top: 32px;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg2);
+    animation: fadeUp 0.8s ease both 1s;
+  }
+
+  .ref-block p {
+    font-size: 0.9rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .ref-block a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .ref-block a:hover { text-decoration: underline; }
+
+  /* ── CARD VISUAL ── */
+  .card-section {
+    margin-top: 40px;
+    text-align: center;
+    animation: fadeUp 0.8s ease both 1.1s;
+  }
+
+  .card-visual {
+    width: 100%;
+    max-width: 320px;
+    margin: 16px auto 0;
+    background: linear-gradient(135deg, #1a2e22 0%, #0f1c15 100%);
+    border: 1px solid var(--border-hover);
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-visual::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .card-chip {
+    width: 32px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    border-radius: 4px;
+    opacity: 0.8;
+  }
+
+  .card-logo-text {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    color: var(--gold-dim);
+    letter-spacing: 0.1em;
+    text-align: right;
+  }
+
+  .card-middle {
+    margin-bottom: 16px;
+  }
+
+  .card-phrase {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.4;
+    font-weight: 300;
+  }
+
+  .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .card-url {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+
+  .qr-placeholder {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-family: var(--mono);
+    color: var(--gold-dim);
+    letter-spacing: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding-top: 48px;
+    animation: fadeUp 0.8s ease both 1.2s;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: var(--cream-dim);
+    font-style: italic;
+    line-height: 1.8;
+    opacity: 0.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bloom {
+    from { opacity: 0; transform: scale(0.6) translateY(12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 400px) {
+    .channels { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="lotus" aria-hidden="true">
+      <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Stem -->
+        <line x1="36" y1="72" x2="36" y2="50" stroke="#2e6b4a" stroke-width="1.5"/>
+        <!-- Petals outer -->
+        <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4"/>
+        <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(40 36 50)"/>
+        <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(80 36 50)"/>
+        <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(-40 36 50)"/>
+        <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(-80 36 50)"/>
+        <!-- Petals inner -->
+        <ellipse cx="36" cy="40" rx="3.5" ry="12" fill="rgba(201,168,76,0.12)" stroke="#e8c97a" stroke-width="1"/>
+        <ellipse cx="36" cy="40" rx="3.5" ry="12" fill="rgba(201,168,76,0.12)" stroke="#e8c97a" stroke-width="1" transform="rotate(60 36 50)"/>
+        <ellipse cx="36" cy="40" rx="3.5" ry="12" fill="rgba(201,168,76,0.12)" stroke="#e8c97a" stroke-width="1" transform="rotate(-60 36 50)"/>
+        <!-- Center -->
+        <circle cx="36" cy="50" r="4" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1"/>
+        <circle cx="36" cy="50" r="1.5" fill="#c9a84c"/>
+      </svg>
+    </div>
+
+    <p class="site-label">Theravāda · Pāli Canon · Português</p>
+    <h1>Sua<br><em>Herança Real</em></h1>
+    <p class="tagline">
+      Não está no Bradesco.<br>
+      Não está no Itaú.<br>
+      Está no Dhamma.
+    </p>
+    <div class="divider"></div>
+  </header>
+
+  <!-- MAIN LINK -->
+  <a class="main-link" href="https://niddhi.netlify.app" target="_blank" rel="noopener">
+    <p class="link-eyebrow">✦ Vitrine principal</p>
+    <p class="link-title">PureDhamma em Português</p>
+    <p class="link-sub">Leia os ensinamentos originais do Prof. Lal — agora em PT-BR</p>
+    <p class="link-url">niddhi.netlify.app</p>
+  </a>
+
+  <!-- CHANNELS -->
+  <p class="section-label">✦ &nbsp; Canais &nbsp; ✦</p>
+
+  <div class="channels">
+
+    <a class="channel" href="https://open.spotify.com/show/033lmZM584r5sJain3cQ7f" target="_blank" rel="noopener">
+      <span class="channel-icon">🎧</span>
+      <span class="channel-name">Spotify</span>
+      <span class="channel-desc">Áudios para o caminho</span>
+      <span class="channel-badge">Áudio</span>
+    </a>
+
+    <a class="channel" href="https://open.spotify.com/show/033ltYEVFoBVQwI3wbCWYW" target="_blank" rel="noopener">
+      <span class="channel-icon">🎬</span>
+      <span class="channel-name">Spotify</span>
+      <span class="channel-desc">Vídeos com NotebookLM</span>
+      <span class="channel-badge">Vídeo</span>
+    </a>
+
+    <a class="channel soon" href="#" aria-disabled="true">
+      <span class="channel-icon">📬</span>
+      <span class="channel-name">Telegram</span>
+      <span class="channel-desc">Comunidade ativa</span>
+      <span class="channel-badge soon-badge">Em breve</span>
+    </a>
+
+    <a class="channel soon" href="#" aria-disabled="true">
+      <span class="channel-icon">▶</span>
+      <span class="channel-name">YouTube</span>
+      <span class="channel-desc">Canal em implantação</span>
+      <span class="channel-badge soon-badge">Em breve</span>
+    </a>
+
+    <a class="channel soon" href="#" aria-disabled="true" style="grid-column: span 2;">
+      <span class="channel-icon">💬</span>
+      <span class="channel-name">WhatsApp</span>
+      <span class="channel-desc">Canal de distribuição</span>
+      <span class="channel-badge soon-badge">Em breve</span>
+    </a>
+
+  </div>
+
+  <!-- PUREDHAMMA REFERENCE -->
+  <div class="ref-block">
+    <p>
+      Este projeto preserva e traduz os ensinamentos publicados em
+      <a href="https://puredhamma.net" target="_blank" rel="noopener">PureDhamma.net</a>
+      pelo Professor Lal. O site em inglês agora indica diretamente esta versão portuguesa:
+      <a href="https://puredhamma.net/pure-dhamma-essays-in-portuguese/" target="_blank" rel="noopener">Pure Dhamma Essays in Portuguese →</a>
+    </p>
+  </div>
+
+  <!-- CARD VISUAL -->
+  <div class="card-section">
+    <p class="section-label">✦ &nbsp; Cartão Inter & Intra Dimensional &nbsp; ✦</p>
+
+    <div class="card-visual" role="img" aria-label="Cartão conceitual com QR-Code para acesso ao Dhamma">
+      <div class="card-top">
+        <div class="card-chip"></div>
+        <div class="card-logo-text">NIDDHI<br>Dhamma</div>
+      </div>
+      <div class="card-middle">
+        <p class="card-phrase">"Sua herança<br>não está no banco."</p>
+      </div>
+      <div class="card-bottom">
+        <span class="card-url">niddhi.netlify.app</span>
+        <div class="qr-placeholder">QR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Sadhu · Sadhu · Sadhu<br>
+      <br>
+      Que todos os seres sejam felizes.<br>
+      Que todos os seres estejam livres do sofrimento.
+    </p>
+  </footer>
+
+</div>
+
+<!-- Activate "Em breve" links when URLs are ready -->
+<script>
+  // When Telegram/YouTube/WhatsApp links are ready,
+  // replace href="#" and remove class "soon" for each channel.
+  // Example:
+  // document.querySelector('.channel[data-id="telegram"]').href = 'https://t.me/...';
+  // document.querySelector('.channel[data-id="telegram"]').classList.remove('soon');
+</script>
+
+</body>
+</html>
