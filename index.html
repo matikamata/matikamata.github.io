@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PureDhamma em Português — acesse as ensinamentos do Buda em seu idioma. Purifica a mente. Serve desinteressadamente.">
+<meta name="description" content="PureDhamma em Português — acesse os ensinamentos do Buda em seu idioma. Purifica a mente. Serve desinteressadamente.">
 <meta property="og:title" content="Niddhi — Sua Herança Real">
 <meta property="og:description" content="PureDhamma em Português. Purifica a mente. Serve desinteressadamente.">
 <meta property="og:url" content="https://matikamata.github.io">
@@ -41,7 +41,6 @@
     overflow-x: hidden;
   }
 
-  /* ── Grain overlay ── */
   body::before {
     content: '';
     position: fixed;
@@ -52,7 +51,6 @@
     opacity: 0.6;
   }
 
-  /* ── Radial glow ── */
   body::after {
     content: '';
     position: fixed;
@@ -76,7 +74,6 @@
     padding: 0 24px 80px;
   }
 
-  /* ── HEADER ── */
   .header {
     text-align: center;
     padding: 64px 0 40px;
@@ -132,7 +129,6 @@
     margin: 28px auto;
   }
 
-  /* ── MAIN LINK ── */
   .main-link {
     display: block;
     background: linear-gradient(135deg, var(--bg3) 0%, rgba(46,107,74,0.2) 100%);
@@ -180,7 +176,6 @@
     margin-top: 10px;
   }
 
-  /* ── CHANNEL GRID ── */
   .section-label {
     font-family: var(--mono);
     font-size: 9px;
@@ -221,15 +216,27 @@
   }
 
   .channel.soon {
-    opacity: 0.5;
+    opacity: 0.45;
     pointer-events: none;
   }
 
-  .channel-icon {
-    font-size: 22px;
-    margin-bottom: 10px;
-    line-height: 1;
+  /* Brand icon bubble */
+  .brand-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    flex-shrink: 0;
   }
+  .brand-icon svg { width: 22px; height: 22px; display: block; }
+
+  .bi-spotify  { background: #1DB954; }
+  .bi-telegram { background: #2AABEE; }
+  .bi-youtube  { background: #FF0000; }
+  .bi-whatsapp { background: #25D366; }
 
   .channel-name {
     font-size: 1rem;
@@ -264,7 +271,6 @@
     color: var(--cream-dim);
   }
 
-  /* ── PUREDHAMMA REFERENCE ── */
   .ref-block {
     margin-top: 32px;
     padding: 20px 24px;
@@ -281,14 +287,9 @@
     font-style: italic;
   }
 
-  .ref-block a {
-    color: var(--gold);
-    text-decoration: none;
-  }
-
+  .ref-block a { color: var(--gold); text-decoration: none; }
   .ref-block a:hover { text-decoration: underline; }
 
-  /* ── CARD VISUAL ── */
   .card-section {
     margin-top: 40px;
     text-align: center;
@@ -310,10 +311,8 @@
   .card-visual::before {
     content: '';
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 100px;
-    height: 100px;
+    top: -30px; right: -30px;
+    width: 100px; height: 100px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
   }
@@ -326,8 +325,7 @@
   }
 
   .card-chip {
-    width: 32px;
-    height: 24px;
+    width: 32px; height: 24px;
     background: linear-gradient(135deg, var(--gold-dim), var(--gold));
     border-radius: 4px;
     opacity: 0.8;
@@ -341,9 +339,7 @@
     text-align: right;
   }
 
-  .card-middle {
-    margin-bottom: 16px;
-  }
+  .card-middle { margin-bottom: 16px; }
 
   .card-phrase {
     font-size: 1.05rem;
@@ -367,8 +363,7 @@
   }
 
   .qr-placeholder {
-    width: 44px;
-    height: 44px;
+    width: 44px; height: 44px;
     border: 1px solid var(--gold-dim);
     border-radius: 4px;
     display: flex;
@@ -377,10 +372,8 @@
     font-size: 9px;
     font-family: var(--mono);
     color: var(--gold-dim);
-    letter-spacing: 0;
   }
 
-  /* ── FOOTER ── */
   footer {
     text-align: center;
     padding-top: 48px;
@@ -395,18 +388,16 @@
     opacity: 0.6;
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes bloom {
     from { opacity: 0; transform: scale(0.6) translateY(12px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  /* ── MOBILE ── */
   @media (max-width: 400px) {
     .channels { grid-template-columns: 1fr; }
     h1 { font-size: 2rem; }
@@ -421,19 +412,15 @@
   <header class="header">
     <div class="lotus" aria-hidden="true">
       <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <!-- Stem -->
         <line x1="36" y1="72" x2="36" y2="50" stroke="#2e6b4a" stroke-width="1.5"/>
-        <!-- Petals outer -->
         <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4"/>
         <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(40 36 50)"/>
         <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(80 36 50)"/>
         <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(-40 36 50)"/>
         <ellipse cx="36" cy="38" rx="5" ry="18" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4" transform="rotate(-80 36 50)"/>
-        <!-- Petals inner -->
         <ellipse cx="36" cy="40" rx="3.5" ry="12" fill="rgba(201,168,76,0.12)" stroke="#e8c97a" stroke-width="1"/>
         <ellipse cx="36" cy="40" rx="3.5" ry="12" fill="rgba(201,168,76,0.12)" stroke="#e8c97a" stroke-width="1" transform="rotate(60 36 50)"/>
         <ellipse cx="36" cy="40" rx="3.5" ry="12" fill="rgba(201,168,76,0.12)" stroke="#e8c97a" stroke-width="1" transform="rotate(-60 36 50)"/>
-        <!-- Center -->
         <circle cx="36" cy="50" r="4" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1"/>
         <circle cx="36" cy="50" r="1.5" fill="#c9a84c"/>
       </svg>
@@ -462,38 +449,63 @@
 
   <div class="channels">
 
+    <!-- Spotify Áudio -->
     <a class="channel" href="https://open.spotify.com/show/033lmZM584r5sJain3cQ7f" target="_blank" rel="noopener">
-      <span class="channel-icon">🎧</span>
+      <div class="brand-icon bi-spotify" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.076-.496 9.712 1.115a.623.623 0 01.207.857zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.785-2.131-9.965-1.166a.78.78 0 01-.973-.519.781.781 0 01.52-.972c3.632-1.102 8.147-.568 11.233 1.328a.78.78 0 01.257 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.794c3.532-1.072 9.404-.865 13.115 1.338a.937.937 0 01-.955 1.613z"/>
+        </svg>
+      </div>
       <span class="channel-name">Spotify</span>
       <span class="channel-desc">Áudios para o caminho</span>
       <span class="channel-badge">Áudio</span>
     </a>
 
+    <!-- Spotify Vídeo -->
     <a class="channel" href="https://open.spotify.com/show/033ltYEVFoBVQwI3wbCWYW" target="_blank" rel="noopener">
-      <span class="channel-icon">🎬</span>
+      <div class="brand-icon bi-spotify" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 01-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 11-.277-1.215c3.809-.87 7.076-.496 9.712 1.115a.623.623 0 01.207.857zm1.223-2.722a.78.78 0 01-1.072.257c-2.687-1.652-6.785-2.131-9.965-1.166a.78.78 0 01-.973-.519.781.781 0 01.52-.972c3.632-1.102 8.147-.568 11.233 1.328a.78.78 0 01.257 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.937.937 0 11-.543-1.794c3.532-1.072 9.404-.865 13.115 1.338a.937.937 0 01-.955 1.613z"/>
+        </svg>
+      </div>
       <span class="channel-name">Spotify</span>
       <span class="channel-desc">Vídeos com NotebookLM</span>
       <span class="channel-badge">Vídeo</span>
     </a>
 
-    <a class="channel soon" href="#" aria-disabled="true">
-      <span class="channel-icon">📬</span>
+    <!-- Telegram -->
+    <a class="channel" href="https://t.me/HeranSSa" target="_blank" rel="noopener">
+      <div class="brand-icon bi-telegram" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.69 7.96c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.19c-.14.14-.25.25-.51.25l.18-2.61 4.71-4.25c.2-.18-.05-.28-.32-.1L7.9 14.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.86z"/>
+        </svg>
+      </div>
       <span class="channel-name">Telegram</span>
-      <span class="channel-desc">Comunidade ativa</span>
-      <span class="channel-badge soon-badge">Em breve</span>
+      <span class="channel-desc">HeranSSa — comunidade ativa</span>
+      <span class="channel-badge">Canal</span>
     </a>
 
+    <!-- YouTube -->
     <a class="channel soon" href="#" aria-disabled="true">
-      <span class="channel-icon">▶</span>
+      <div class="brand-icon bi-youtube" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+        </svg>
+      </div>
       <span class="channel-name">YouTube</span>
       <span class="channel-desc">Canal em implantação</span>
       <span class="channel-badge soon-badge">Em breve</span>
     </a>
 
+    <!-- WhatsApp -->
     <a class="channel soon" href="#" aria-disabled="true" style="grid-column: span 2;">
-      <span class="channel-icon">💬</span>
+      <div class="brand-icon bi-whatsapp" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </div>
       <span class="channel-name">WhatsApp</span>
-      <span class="channel-desc">Canal de distribuição</span>
+      <span class="channel-desc">Canal DoDiDha — dose diária de Dhamma</span>
       <span class="channel-badge soon-badge">Em breve</span>
     </a>
 
@@ -522,7 +534,7 @@
         <p class="card-phrase">"Sua herança<br>não está no banco."</p>
       </div>
       <div class="card-bottom">
-        <span class="card-url">niddhi.netlify.app</span>
+        <span class="card-url">matikamata.github.io</span>
         <div class="qr-placeholder">QR</div>
       </div>
     </div>
@@ -539,15 +551,6 @@
   </footer>
 
 </div>
-
-<!-- Activate "Em breve" links when URLs are ready -->
-<script>
-  // When Telegram/YouTube/WhatsApp links are ready,
-  // replace href="#" and remove class "soon" for each channel.
-  // Example:
-  // document.querySelector('.channel[data-id="telegram"]').href = 'https://t.me/...';
-  // document.querySelector('.channel[data-id="telegram"]').classList.remove('soon');
-</script>
 
 </body>
 </html>
